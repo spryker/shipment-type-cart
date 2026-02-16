@@ -1,2 +1,4 @@
 parameters:
     level: 8
+    ignoreErrors:
+        - { message: '#Instanceof between Closure and Closure will always evaluate to true#', path: '%rootDir%/../../../src/Spryker/ShipmentTypeCart/src/Spryker/Zed/ShipmentTypeCart/Business/StrategyResolver/' }
