@@ -56,9 +56,6 @@ class IsQuoteReadyForCheckoutSingleShipmentTest extends Unit
      */
     protected ShipmentTypeCartBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testReturnsNoErrorWhenSelectedShipmentTypeIsValid(): void
     {
         // Arrange
@@ -83,9 +80,6 @@ class IsQuoteReadyForCheckoutSingleShipmentTest extends Unit
         $this->assertCount(0, $checkoutResponseTransfer->getErrors());
     }
 
-    /**
-     * @return void
-     */
     public function testIsQuoteReadyForCheckoutReturnsNoErrorWhenStoreWithoutAnyShipmentTypes(): void
     {
         // Arrange
@@ -118,9 +112,6 @@ class IsQuoteReadyForCheckoutSingleShipmentTest extends Unit
         $this->assertCount(0, $checkoutResponseTransfer->getErrors());
     }
 
-    /**
-     * @return void
-     */
     public function testReturnsErrorWhenSelectedShipmentTypeDoesNotMatchShipmentMethodsShipmentType(): void
     {
         // Arrange
@@ -153,9 +144,6 @@ class IsQuoteReadyForCheckoutSingleShipmentTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testReturnsErrorWhenSelectedShipmentTypeNotAvailableForStore(): void
     {
         // Arrange
@@ -185,9 +173,6 @@ class IsQuoteReadyForCheckoutSingleShipmentTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testReturnsErrorWhenSelectedShipmentTypeIsNotActive(): void
     {
         // Arrange
@@ -328,11 +313,6 @@ class IsQuoteReadyForCheckoutSingleShipmentTest extends Unit
         ];
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ShipmentTypeTransfer $shipmentTypeTransfer
-     *
-     * @return \Generated\Shared\DataBuilder\ShipmentBuilder
-     */
     protected function createShipmentBuilder(ShipmentTypeTransfer $shipmentTypeTransfer): ShipmentBuilder
     {
         return (new ShipmentBuilder([
@@ -340,9 +320,6 @@ class IsQuoteReadyForCheckoutSingleShipmentTest extends Unit
         ]))->withMethod([ShipmentMethodTransfer::SHIPMENT_TYPE => $shipmentTypeTransfer]);
     }
 
-    /**
-     * @return \Spryker\Zed\ShipmentTypeCart\Business\Reader\ShipmentTypeReaderInterface
-     */
     protected function createShipmentTypeReaderMock(): ShipmentTypeReaderInterface
     {
         return $this->getMockBuilder(ShipmentTypeReaderInterface::class)->getMock();

@@ -57,9 +57,6 @@ class IsQuoteReadyForCheckoutMultiShipmentTest extends Unit
      */
     protected ShipmentTypeCartBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testReturnsNoErrorWhenSelectedShipmentTypeIsValid(): void
     {
         // Arrange
@@ -89,9 +86,6 @@ class IsQuoteReadyForCheckoutMultiShipmentTest extends Unit
         $this->assertCount(0, $checkoutResponseTransfer->getErrors());
     }
 
-    /**
-     * @return void
-     */
     public function testReturnsErrorWhenSelectedShipmentTypeDoesNotMatchShipmentMethodsShipmentType(): void
     {
         // Arrange
@@ -126,9 +120,6 @@ class IsQuoteReadyForCheckoutMultiShipmentTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testReturnsErrorWhenSelectedShipmentTypeNotAvailableForStore(): void
     {
         // Arrange
@@ -161,9 +152,6 @@ class IsQuoteReadyForCheckoutMultiShipmentTest extends Unit
         $this->assertCount(0, $checkoutResponseTransfer->getErrors());
     }
 
-    /**
-     * @return void
-     */
     public function testIsQuoteReadyForCheckoutReturnsNoErrorWhenStoreWithoutAnyShipmentTypes(): void
     {
         // Arrange
@@ -196,9 +184,6 @@ class IsQuoteReadyForCheckoutMultiShipmentTest extends Unit
         $this->assertCount(0, $checkoutResponseTransfer->getErrors());
     }
 
-    /**
-     * @return void
-     */
     public function testReturnsErrorWhenSelectedShipmentTypeIsNotActive(): void
     {
         // Arrange
@@ -227,9 +212,6 @@ class IsQuoteReadyForCheckoutMultiShipmentTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testDoesNotDuplicatesErrorsWhenSameSelectedShipmentTypeDoesNotMatchShipmentMethodsShipmentType(): void
     {
         $storeTransfer = $this->tester->haveStore();
@@ -270,9 +252,6 @@ class IsQuoteReadyForCheckoutMultiShipmentTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testDoesNotDuplicatesErrorsWhenSelectedShipmentTypeIsNotAvailable(): void
     {
         // Arrange
@@ -422,11 +401,6 @@ class IsQuoteReadyForCheckoutMultiShipmentTest extends Unit
         ];
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ShipmentTypeTransfer $shipmentTypeTransfer
-     *
-     * @return \Generated\Shared\DataBuilder\ItemBuilder
-     */
     protected function createItemBuilder(ShipmentTypeTransfer $shipmentTypeTransfer): ItemBuilder
     {
         return (new ItemBuilder())->withShipment(

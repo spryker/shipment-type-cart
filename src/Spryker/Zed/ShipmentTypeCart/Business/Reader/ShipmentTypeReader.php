@@ -19,9 +19,6 @@ class ShipmentTypeReader implements ShipmentTypeReaderInterface
      */
     protected ShipmentTypeCartToShipmentTypeFacadeInterface $shipmentTypeFacade;
 
-    /**
-     * @param \Spryker\Zed\ShipmentTypeCart\Dependency\Facade\ShipmentTypeCartToShipmentTypeFacadeInterface $shipmentTypeFacade
-     */
     public function __construct(ShipmentTypeCartToShipmentTypeFacadeInterface $shipmentTypeFacade)
     {
         $this->shipmentTypeFacade = $shipmentTypeFacade;
@@ -45,11 +42,6 @@ class ShipmentTypeReader implements ShipmentTypeReaderInterface
         return $this->shipmentTypeFacade->getShipmentTypeCollection($shipmentTypeCriteriaTransfer);
     }
 
-    /**
-     * @param string $storeName
-     *
-     * @return \Generated\Shared\Transfer\ShipmentTypeCollectionTransfer
-     */
     public function getShipmentTypeCollection(string $storeName): ShipmentTypeCollectionTransfer
     {
         $shipmentTypeConditionsTransfer = (new ShipmentTypeConditionsTransfer())

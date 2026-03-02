@@ -46,12 +46,6 @@ class ShipmentTypeCartBusinessTester extends Actor
      */
     protected const ERROR_MESSAGE_PARAMETER_NAME = '%name%';
 
-    /**
-     * @param \Generated\Shared\Transfer\CheckoutErrorTransfer $checkoutErrorTransfer
-     * @param \Generated\Shared\Transfer\ShipmentTypeTransfer $shipmentTypeTransfer
-     *
-     * @return void
-     */
     public function assertCheckoutErrorTransfer(CheckoutErrorTransfer $checkoutErrorTransfer, ShipmentTypeTransfer $shipmentTypeTransfer): void
     {
         $this->assertSame(static::GLOSSARY_KEY_VALIDATION_SHIPMENT_TYPE_CART_CHECKOUT_ERROR, $checkoutErrorTransfer->getMessage());

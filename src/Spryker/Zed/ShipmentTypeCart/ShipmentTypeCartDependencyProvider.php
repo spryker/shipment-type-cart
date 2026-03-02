@@ -21,11 +21,6 @@ class ShipmentTypeCartDependencyProvider extends AbstractBundleDependencyProvide
      */
     public const FACADE_SHIPMENT_TYPE = 'FACADE_SHIPMENT_TYPE';
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     public function provideBusinessLayerDependencies(Container $container): Container
     {
         $container = parent::provideBusinessLayerDependencies($container);
@@ -35,11 +30,6 @@ class ShipmentTypeCartDependencyProvider extends AbstractBundleDependencyProvide
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addShipmentTypeFacade(Container $container): Container
     {
         $container->set(static::FACADE_SHIPMENT_TYPE, function (Container $container) {

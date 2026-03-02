@@ -25,12 +25,6 @@ class MultiShipmentShipmentTypeCheckoutValidator implements ShipmentTypeCheckout
         $this->shipmentTypeCheckoutValidationRules = $shipmentTypeCheckoutValidationRules;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param \Generated\Shared\Transfer\CheckoutResponseTransfer $checkoutResponseTransfer
-     *
-     * @return bool
-     */
     public function isQuoteReadyForCheckout(QuoteTransfer $quoteTransfer, CheckoutResponseTransfer $checkoutResponseTransfer): bool
     {
         foreach ($this->shipmentTypeCheckoutValidationRules as $shipmentTypeCheckoutValidationRule) {

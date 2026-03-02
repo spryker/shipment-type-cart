@@ -20,20 +20,11 @@ class ShipmentTypesHaveRelationWithShipmentMethodsCheckoutValidationRule impleme
      */
     protected SalesShipmentTypeValidationErrorCreatorInterface $salesShipmentTypeValidationErrorCreator;
 
-    /**
-     * @param \Spryker\Zed\ShipmentTypeCart\Business\Validator\ErrorCreator\SalesShipmentTypeValidationErrorCreatorInterface $salesShipmentTypeValidationErrorCreator
-     */
     public function __construct(SalesShipmentTypeValidationErrorCreatorInterface $salesShipmentTypeValidationErrorCreator)
     {
         $this->salesShipmentTypeValidationErrorCreator = $salesShipmentTypeValidationErrorCreator;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param \Generated\Shared\Transfer\CheckoutResponseTransfer $checkoutResponseTransfer
-     *
-     * @return bool
-     */
     public function isQuoteReadyForCheckout(QuoteTransfer $quoteTransfer, CheckoutResponseTransfer $checkoutResponseTransfer): bool
     {
         $invalidShipmentTypeUuids = [];
@@ -57,11 +48,6 @@ class ShipmentTypesHaveRelationWithShipmentMethodsCheckoutValidationRule impleme
         return $invalidShipmentTypeUuids === [];
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return bool
-     */
     protected function isShipmentTypeDataProvided(ItemTransfer $itemTransfer): bool
     {
         return $itemTransfer->getShipment() !== null
@@ -70,12 +56,6 @@ class ShipmentTypesHaveRelationWithShipmentMethodsCheckoutValidationRule impleme
             && $itemTransfer->getShipmentOrFail()->getShipmentTypeUuid() !== null;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     * @param \Generated\Shared\Transfer\ShipmentTypeTransfer $shipmentTypeTransfer
-     *
-     * @return bool
-     */
     protected function isShipmentTypeMatchShipmentMethod(ItemTransfer $itemTransfer, ShipmentTypeTransfer $shipmentTypeTransfer): bool
     {
         return $itemTransfer->getShipmentOrFail()->getShipmentTypeUuidOrFail() === $shipmentTypeTransfer->getUuidOrFail();

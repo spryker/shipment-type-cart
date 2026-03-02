@@ -15,10 +15,5 @@ use Spryker\Zed\ShipmentTypeCart\Business\Validator\ShipmentTypeCheckoutValidato
  */
 interface ShipmentTypeCheckoutValidatorStrategyResolverInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Spryker\Zed\ShipmentTypeCart\Business\Validator\ShipmentTypeCheckoutValidatorInterface
-     */
     public function resolve(QuoteTransfer $quoteTransfer): ShipmentTypeCheckoutValidatorInterface;
 }

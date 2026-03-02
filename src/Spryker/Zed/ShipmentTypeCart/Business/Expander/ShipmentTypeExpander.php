@@ -13,11 +13,6 @@ use Generated\Shared\Transfer\QuoteTransfer;
 
 class ShipmentTypeExpander implements ShipmentTypeExpanderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     public function expandQuoteItemsWithShipmentType(QuoteTransfer $quoteTransfer): QuoteTransfer
     {
         $this->expandItemsWithShipmentType($quoteTransfer->getItems());
@@ -25,11 +20,6 @@ class ShipmentTypeExpander implements ShipmentTypeExpanderInterface
         return $quoteTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartChangeTransfer
-     */
     public function expandCartChangeItemsWithShipmentType(CartChangeTransfer $cartChangeTransfer): CartChangeTransfer
     {
         $this->expandItemsWithShipmentType($cartChangeTransfer->getItems());

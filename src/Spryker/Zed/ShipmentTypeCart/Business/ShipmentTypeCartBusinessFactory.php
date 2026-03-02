@@ -30,17 +30,11 @@ use Spryker\Zed\ShipmentTypeCart\ShipmentTypeCartDependencyProvider;
  */
 class ShipmentTypeCartBusinessFactory extends AbstractBusinessFactory
 {
-    /**
-     * @return \Spryker\Zed\ShipmentTypeCart\Business\Expander\ShipmentTypeExpanderInterface
-     */
     public function createShipmentTypeExpander(): ShipmentTypeExpanderInterface
     {
         return new ShipmentTypeExpander();
     }
 
-    /**
-     * @return \Spryker\Zed\ShipmentTypeCart\Business\Validator\ShipmentTypeCheckoutValidatorInterface
-     */
     public function createMultiShipmentShipmentTypeCheckoutValidator(): ShipmentTypeCheckoutValidatorInterface
     {
         return new MultiShipmentShipmentTypeCheckoutValidator(
@@ -51,9 +45,6 @@ class ShipmentTypeCartBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ShipmentTypeCart\Business\Validator\Rule\ShipmentTypeCheckoutValidationRuleInterface
-     */
     public function createShipmentTypesHaveRelationWithShipmentMethodsCheckoutValidationRule(): ShipmentTypeCheckoutValidationRuleInterface
     {
         return new ShipmentTypesHaveRelationWithShipmentMethodsCheckoutValidationRule(
@@ -61,9 +52,6 @@ class ShipmentTypeCartBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ShipmentTypeCart\Business\Validator\Rule\ShipmentTypeCheckoutValidationRuleInterface
-     */
     public function createShipmentTypeAvailableCheckoutValidationRule(): ShipmentTypeCheckoutValidationRuleInterface
     {
         return new ShipmentTypeAvailableCheckoutValidationRule(
@@ -72,9 +60,6 @@ class ShipmentTypeCartBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ShipmentTypeCart\Business\Validator\ShipmentTypeCheckoutValidatorInterface
-     */
     public function createSingleShipmentShipmentTypeCheckoutValidator(): ShipmentTypeCheckoutValidatorInterface
     {
         return new SingleShipmentShipmentTypeCheckoutValidator(
@@ -83,25 +68,16 @@ class ShipmentTypeCartBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ShipmentTypeCart\Business\Reader\ShipmentTypeReaderInterface
-     */
     public function createShipmentTypeReader(): ShipmentTypeReaderInterface
     {
         return new ShipmentTypeReader($this->getShipmentTypeFacade());
     }
 
-    /**
-     * @return \Spryker\Zed\ShipmentTypeCart\Business\Validator\ErrorCreator\SalesShipmentTypeValidationErrorCreatorInterface
-     */
     public function createSalesShipmentTypeValidationErrorCreator(): SalesShipmentTypeValidationErrorCreatorInterface
     {
         return new SalesShipmentTypeValidationErrorCreator();
     }
 
-    /**
-     * @return \Spryker\Zed\ShipmentTypeCart\Dependency\Facade\ShipmentTypeCartToShipmentTypeFacadeInterface
-     */
     public function getShipmentTypeFacade(): ShipmentTypeCartToShipmentTypeFacadeInterface
     {
         return $this->getProvidedDependency(ShipmentTypeCartDependencyProvider::FACADE_SHIPMENT_TYPE);

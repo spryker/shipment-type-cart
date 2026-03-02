@@ -36,9 +36,6 @@ use Spryker\Zed\ShipmentTypeCart\Business\Validator\Rule\ShipmentTypeCheckoutVal
  */
 class ShipmentTypeAvailableCheckoutValidationRuleTest extends Unit
 {
-    /**
-     * @return void
-     */
     public function testIsQuoteReadyForCheckoutReturnTrue(): void
     {
         // Arrange
@@ -59,9 +56,6 @@ class ShipmentTypeAvailableCheckoutValidationRuleTest extends Unit
         $this->assertCount(0, $checkoutResponseTransfer->getErrors());
     }
 
-    /**
-     * @return void
-     */
     public function testIsQuoteReadyForCheckoutReturnFalse(): void
     {
         // Arrange
@@ -94,11 +88,6 @@ class ShipmentTypeAvailableCheckoutValidationRuleTest extends Unit
         $this->assertCount(1, $checkoutResponseTransfer->getErrors());
     }
 
-    /**
-     * @param \Spryker\Zed\ShipmentTypeCart\Business\Reader\ShipmentTypeReaderInterface|null $shipmentTypeReaderMock
-     *
-     * @return \Spryker\Zed\ShipmentTypeCart\Business\Validator\Rule\ShipmentTypeCheckoutValidationRuleInterface
-     */
     protected function createShipmentTypeAvailableCheckoutValidationRule(
         ?ShipmentTypeReaderInterface $shipmentTypeReaderMock = null
     ): ShipmentTypeCheckoutValidationRuleInterface {
@@ -108,17 +97,11 @@ class ShipmentTypeAvailableCheckoutValidationRuleTest extends Unit
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ShipmentTypeCart\Business\Reader\ShipmentTypeReaderInterface
-     */
     protected function createShipmentTypeReaderMock(): ShipmentTypeReaderInterface
     {
         return $this->getMockBuilder(ShipmentTypeReaderInterface::class)->getMock();
     }
 
-    /**
-     * @return \Spryker\Zed\ShipmentTypeCart\Business\Validator\ErrorCreator\SalesShipmentTypeValidationErrorCreatorInterface
-     */
     public function createSalesShipmentTypeValidationErrorCreator(): SalesShipmentTypeValidationErrorCreatorInterface
     {
         return new SalesShipmentTypeValidationErrorCreator();

@@ -41,11 +41,6 @@ class ShipmentTypeCheckoutValidatorStrategyResolver implements ShipmentTypeCheck
         $this->strategyContainer = $strategyContainer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Spryker\Zed\ShipmentTypeCart\Business\Validator\ShipmentTypeCheckoutValidatorInterface
-     */
     public function resolve(QuoteTransfer $quoteTransfer): ShipmentTypeCheckoutValidatorInterface
     {
         $itemTransfers = $quoteTransfer->getItems();

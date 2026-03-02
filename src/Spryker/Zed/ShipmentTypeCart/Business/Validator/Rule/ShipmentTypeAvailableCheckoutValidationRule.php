@@ -26,10 +26,6 @@ class ShipmentTypeAvailableCheckoutValidationRule implements ShipmentTypeCheckou
      */
     protected SalesShipmentTypeValidationErrorCreatorInterface $salesShipmentTypeValidationErrorCreator;
 
-    /**
-     * @param \Spryker\Zed\ShipmentTypeCart\Business\Reader\ShipmentTypeReaderInterface $shipmentTypeReader
-     * @param \Spryker\Zed\ShipmentTypeCart\Business\Validator\ErrorCreator\SalesShipmentTypeValidationErrorCreatorInterface $salesShipmentTypeValidationErrorCreator
-     */
     public function __construct(
         ShipmentTypeReaderInterface $shipmentTypeReader,
         SalesShipmentTypeValidationErrorCreatorInterface $salesShipmentTypeValidationErrorCreator
@@ -38,12 +34,6 @@ class ShipmentTypeAvailableCheckoutValidationRule implements ShipmentTypeCheckou
         $this->salesShipmentTypeValidationErrorCreator = $salesShipmentTypeValidationErrorCreator;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param \Generated\Shared\Transfer\CheckoutResponseTransfer $checkoutResponseTransfer
-     *
-     * @return bool
-     */
     public function isQuoteReadyForCheckout(QuoteTransfer $quoteTransfer, CheckoutResponseTransfer $checkoutResponseTransfer): bool
     {
         $indexedShipmentTypeTransfers = $this->getShipmentTypeTransfersIndexedByShipmentTypeUuid($quoteTransfer->getItems());
@@ -77,11 +67,6 @@ class ShipmentTypeAvailableCheckoutValidationRule implements ShipmentTypeCheckou
         return false;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return bool
-     */
     protected function isShipmentMethodShipmentTypeProvided(ItemTransfer $itemTransfer): bool
     {
         return $itemTransfer->getShipment() !== null
@@ -124,11 +109,6 @@ class ShipmentTypeAvailableCheckoutValidationRule implements ShipmentTypeCheckou
         return $shipmentTypeUuids;
     }
 
-    /**
-     * @param string $storeName
-     *
-     * @return bool
-     */
     protected function hasStoreShipmentTypes(string $storeName): bool
     {
         $shipmentTypeCollectionTransfer = $this->shipmentTypeReader->getShipmentTypeCollection(
